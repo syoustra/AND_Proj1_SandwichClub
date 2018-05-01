@@ -3,6 +3,7 @@ package com.udacity.sandwichclub;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -28,6 +29,16 @@ public class DetailActivity extends AppCompatActivity {
     protected TextView descriptionTextView;
     @BindView(R.id.ingredients_tv)
     protected TextView ingredientsTextView;
+
+    @BindView(R.id.origin_label_tv)
+    protected TextView originLabelTextView;
+    @BindView(R.id.aka_label_tv)
+    protected TextView akaLabelTextView;
+    @BindView(R.id.desc_label_tv)
+    protected TextView descLabelTextView;
+    @BindView(R.id.ingred_label_tv)
+    protected TextView ingredLabelTextView;
+
 
 
     @Override
@@ -64,7 +75,7 @@ public class DetailActivity extends AppCompatActivity {
         // Photo Taken 12/8/2005;
         // Creative Commons Attribution 2.0 Generic
         // Text added via addtext.com
-        
+
         populateUI(sandwich);
         Picasso.with(this)
                 .load(sandwich.getImage())
@@ -82,14 +93,37 @@ public class DetailActivity extends AppCompatActivity {
 
     private void populateUI(Sandwich sandwich) {
         //TODO Populate these out
-        originTextView.setText(sandwich.getPlaceOfOrigin());
-        akaTextView.setText(sandwich.getAlsoKnownAs().toString().replaceAll("[\\[\\]]", ""));
-        descriptionTextView.setText(sandwich.getDescription());
-        ingredientsTextView.setText(sandwich.getIngredients().toString().replaceAll("[\\[\\]]", "").replaceAll("[\\,]", " *"));
+        if (sandwich.getPlaceOfOrigin().isEmpty()) {
+            originLabelTextView.setVisibility(View.GONE);
+            originTextView.setVisibility(View.GONE);
+        } else {
+            originTextView.setText(sandwich.getPlaceOfOrigin());
+        }
 
-        //TODO ... if null, hide whole section
-        //TODO ... add in default image
-        //TODO ... remove [] from aka and ingredients
+        if (sandwich.getAlsoKnownAs().isEmpty()) {
+            akaLabelTextView.setVisibility(View.GONE);
+            akaTextView.setVisibility(View.GONE);
+        } else {
+            akaTextView.setText(sandwich.getAlsoKnownAs().toString().replaceAll("[\\[\\]]", ""));
+        }
+
+        if (sandwich.getDescription().isEmpty()) {
+            descLabelTextView.setVisibility(View.GONE);
+            descriptionTextView.setVisibility(View.GONE);
+        } else {
+            descriptionTextView.setText(sandwich.getDescription());
+        }
+
+        if (sandwich.getIngredients().isEmpty()) {
+            ingredLabelTextView.setVisibility(View.GONE);
+            ingredientsTextView.setVisibility(View.GONE);
+        } else {
+            ingredientsTextView.setText(sandwich.getIngredients().toString().replaceAll("[\\[\\]]", "").replaceAll("[\\,]", " *"));
+        }
+
+        //     TODO ... if null, hide whole section
+        //     TODO ... add in default image
+        //     TODO ... remove [] from aka and ingredients
         //TODO ... add in comments
         //TODO ... check submission requirements
 

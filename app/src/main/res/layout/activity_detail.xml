@@ -36,6 +36,7 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/origin_label_tv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/detail_place_of_origin_label"
@@ -53,6 +54,7 @@
                 android:textSize="18sp" />
 
             <TextView
+                android:id="@+id/aka_label_tv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/detail_also_known_as_label"
@@ -70,6 +72,7 @@
                 android:textSize="18sp" />
 
             <TextView
+                android:id="@+id/desc_label_tv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/detail_description_label"
@@ -87,6 +90,7 @@
                 android:textSize="18sp" />
 
             <TextView
+                android:id="@+id/ingred_label_tv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/detail_ingredients_label"
