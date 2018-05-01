@@ -59,9 +59,17 @@ public class DetailActivity extends AppCompatActivity {
             return;
         }
 
+        // DEFAULT IMAGE COMES FROM:
+        // https://www.flickr.com/photos/re_birf/71582837/;
+        // Photo Taken 12/8/2005;
+        // Creative Commons Attribution 2.0 Generic
+        // Text added via addtext.com
+        
         populateUI(sandwich);
         Picasso.with(this)
                 .load(sandwich.getImage())
+                .placeholder(R.drawable.sandwich_not_found)
+                .error(R.drawable.sandwich_not_found)
                 .into(ingredientsIv);
 
         setTitle(sandwich.getMainName());
