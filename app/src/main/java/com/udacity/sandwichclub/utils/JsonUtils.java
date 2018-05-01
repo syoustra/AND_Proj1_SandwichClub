@@ -1,3 +1,7 @@
+/*
+ * Copyright (C) 2018 Udacity (for base material); Stephanie Youstra (for JSON parsing and layouts)
+ */
+
 package com.udacity.sandwichclub.utils;
 
 import com.udacity.sandwichclub.model.Sandwich;
@@ -11,23 +15,24 @@ import java.util.List;
 
 public class JsonUtils {
 
+    /** Parses JSON data from strings.xml to populate the app's UI */
+    /**
+     * Reference used: https://www.javacodegeeks.com/2013/10/android-json-tutorial-create-and-parse-json-data.html
+     */
+
     public static Sandwich parseSandwichJson(String json) {
-
-        //Reference used: https://www.javacodegeeks.com/2013/10/android-json-tutorial-create-and-parse-json-data.html
-
-//      JSON structure
-//        {name:
-//           {mainName: ,
-//           alsoKnownAs: []}
-//        placeOfOrigin: ,
-//        description: ,
-//        image: ,
-//        ingredients: [] }
-
-
-        // name, place, description, image, ingredients are all object properties
-        // aka and ingredients are Lists; name is another object/class
-
+/**
+ *      JSON structure
+ *        {name:
+ *           {mainName: ,
+ *           alsoKnownAs: []}
+ *        placeOfOrigin: ,
+ *        description: ,
+ *        image: ,
+ *        ingredients: [] }
+ *     name, place, description, image, ingredients are all object properties
+ *     alsoKnownAs and ingredients are Lists; name is another object/class
+ */
 
         try {
             JSONObject sandwichObj = new JSONObject(json);

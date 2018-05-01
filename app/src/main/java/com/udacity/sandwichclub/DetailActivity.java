@@ -1,3 +1,7 @@
+/*
+ * Copyright (C) 2018 Udacity (for base material); Stephanie Youstra (for JSON parsing and layouts)
+ */
+
 package com.udacity.sandwichclub;
 
 import android.content.Intent;
@@ -15,12 +19,18 @@ import com.udacity.sandwichclub.utils.JsonUtils;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+/**
+ * Populates the UserInterface with the parsed JSON data, as appropriate
+ */
+
 public class DetailActivity extends AppCompatActivity {
 
     public static final String EXTRA_POSITION = "extra_position";
     private static final int DEFAULT_POSITION = -1;
 
-    //Butterknife view bindings
+    /**
+     * Binds views with Butterknife
+     */
     @BindView(R.id.origin_tv)
     protected TextView originTextView;
     @BindView(R.id.also_known_tv)
@@ -38,7 +48,6 @@ public class DetailActivity extends AppCompatActivity {
     protected TextView descLabelTextView;
     @BindView(R.id.ingred_label_tv)
     protected TextView ingredLabelTextView;
-
 
 
     @Override
@@ -70,12 +79,13 @@ public class DetailActivity extends AppCompatActivity {
             return;
         }
 
-        // DEFAULT IMAGE COMES FROM:
-        // https://www.flickr.com/photos/re_birf/71582837/;
-        // Photo Taken 12/8/2005;
-        // Creative Commons Attribution 2.0 Generic
-        // Text added via addtext.com
-
+        /**
+         * DEFAULT IMAGE COMES FROM:
+         * https://www.flickr.com/photos/re_birf/71582837/;
+         * Photo Taken 12/8/2005;
+         * Creative Commons Attribution 2.0 Generic
+         * Text added via addtext.com
+         */
         populateUI(sandwich);
         Picasso.with(this)
                 .load(sandwich.getImage())
@@ -93,9 +103,10 @@ public class DetailActivity extends AppCompatActivity {
 
     private void populateUI(Sandwich sandwich) {
 
-        //If there is no data for the field, the field and label disappear
-        //Otherwise, the appropriate data is pulled from the Sandwich object
-        //That data is then used to populate the TextViews
+        /**
+         * Checks for empty fields, and makes their field and label disappear.
+         * Pulls appropriate data from Sandwich object to populate the TextViews.
+         */
 
         if (sandwich.getPlaceOfOrigin().isEmpty()) {
             originLabelTextView.setVisibility(View.GONE);
