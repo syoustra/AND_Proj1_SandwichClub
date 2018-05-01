@@ -75,11 +75,15 @@ public class DetailActivity extends AppCompatActivity {
     private void populateUI(Sandwich sandwich) {
         //TODO Populate these out
         originTextView.setText(sandwich.getPlaceOfOrigin());
-        akaTextView.setText(sandwich.getAlsoKnownAs().toString());
+        akaTextView.setText(sandwich.getAlsoKnownAs().toString().replaceAll("[\\[\\]]", ""));
         descriptionTextView.setText(sandwich.getDescription());
-        ingredientsTextView.setText(sandwich.getIngredients().toString());
+        ingredientsTextView.setText(sandwich.getIngredients().toString().replaceAll("[\\[\\]]", "").replaceAll("[\\,]", " *"));
 
         //TODO ... if null, hide whole section
+        //TODO ... add in default image
+        //TODO ... remove [] from aka and ingredients
+        //TODO ... add in comments
+        //TODO ... check submission requirements
 
 
 
