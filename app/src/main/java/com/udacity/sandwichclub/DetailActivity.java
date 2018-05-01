@@ -21,14 +21,14 @@ public class DetailActivity extends AppCompatActivity {
 
     //Butterknife view bindings
     @BindView(R.id.origin_tv)
-    protected TextView originText;
+    protected TextView originTextView;
     @BindView(R.id.also_known_tv)
-    protected TextView akaText;
+    protected TextView akaTextView;
     @BindView(R.id.description_tv)
-    protected TextView descriptionText;
+    protected TextView descriptionTextView;
     @BindView(R.id.ingredients_tv)
-    protected TextView ingredientsText;
-    
+    protected TextView ingredientsTextView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,7 +59,7 @@ public class DetailActivity extends AppCompatActivity {
             return;
         }
 
-        populateUI();
+        populateUI(sandwich);
         Picasso.with(this)
                 .load(sandwich.getImage())
                 .into(ingredientsIv);
@@ -72,7 +72,17 @@ public class DetailActivity extends AppCompatActivity {
         Toast.makeText(this, R.string.detail_error_message, Toast.LENGTH_SHORT).show();
     }
 
-    private void populateUI() {
+    private void populateUI(Sandwich sandwich) {
+        //TODO Populate these out
+        originTextView.setText(sandwich.getPlaceOfOrigin());
+        akaTextView.setText(sandwich.getAlsoKnownAs().toString());
+        descriptionTextView.setText(sandwich.getDescription());
+        ingredientsTextView.setText(sandwich.getIngredients().toString());
+
+        //TODO ... if null, hide whole section
+
+
+
 
     }
 }
