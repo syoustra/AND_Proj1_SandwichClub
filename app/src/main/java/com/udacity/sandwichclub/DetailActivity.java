@@ -92,7 +92,11 @@ public class DetailActivity extends AppCompatActivity {
     }
 
     private void populateUI(Sandwich sandwich) {
-        //TODO Populate these out
+
+        //If there is no data for the field, the field and label disappear
+        //Otherwise, the appropriate data is pulled from the Sandwich object
+        //That data is then used to populate the TextViews
+
         if (sandwich.getPlaceOfOrigin().isEmpty()) {
             originLabelTextView.setVisibility(View.GONE);
             originTextView.setVisibility(View.GONE);
@@ -120,15 +124,6 @@ public class DetailActivity extends AppCompatActivity {
         } else {
             ingredientsTextView.setText(sandwich.getIngredients().toString().replaceAll("[\\[\\]]", "").replaceAll("[\\,]", " *"));
         }
-
-        //     TODO ... if null, hide whole section
-        //     TODO ... add in default image
-        //     TODO ... remove [] from aka and ingredients
-        //TODO ... add in comments
-        //TODO ... check submission requirements
-
-
-
 
     }
 }

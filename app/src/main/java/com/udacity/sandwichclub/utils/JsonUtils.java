@@ -6,14 +6,12 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class JsonUtils {
 
     public static Sandwich parseSandwichJson(String json) {
-     //   return null;
 
         //Reference used: https://www.javacodegeeks.com/2013/10/android-json-tutorial-create-and-parse-json-data.html
 
@@ -26,11 +24,10 @@ public class JsonUtils {
 //        image: ,
 //        ingredients: [] }
 
-        //TODO .... set defaults/nulls
 
         // name, place, description, image, ingredients are all object properties
         // aka and ingredients are Lists; name is another object/class
-        //
+
 
         try {
             JSONObject sandwichObj = new JSONObject(json);
